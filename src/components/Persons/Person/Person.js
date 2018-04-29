@@ -50,5 +50,4 @@ Person.propTypes = {
   changed: PropTypes.func
 };
 
-//export default withClass(Person, classes.Person);
-export default Person;
+export default withClass(Person, classes.Person);
