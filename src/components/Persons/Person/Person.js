@@ -23,6 +23,10 @@ class Person extends Component {
     }
   }
 
+  focus() {
+    this.inputElement.current.focus();
+  }
+
   render() {
     console.log("[Person.js] Inside render()");
     return (
@@ -46,4 +50,5 @@ Person.propTypes = {
   changed: PropTypes.func
 };
 
-export default withClass(Person, classes.Person);
+//export default withClass(Person, classes.Person);
+export default Person;
