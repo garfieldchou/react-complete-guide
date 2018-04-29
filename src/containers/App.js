@@ -5,6 +5,8 @@ import Cockpit from "../components/Cockpit/Cockpit";
 import Aux from "../hoc/Aux";
 import withClass from "../hoc/withClass";
 
+export const AuthContext = React.createContext(false);
+
 class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -86,7 +88,6 @@ class App extends PureComponent {
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
           changed={this.nameChangedHandler}
-          isAuthenticated={this.state.authenticated}
         />
       );
     }
@@ -101,7 +102,9 @@ class App extends PureComponent {
           login={this.loginHandler}
           clicked={this.togglePersonsHandler}
           />
-        {persons}
+        <AuthContext.Provider value={this.state.authenticated}>
+          {persons}
+        </AuthContext.Provider>
       </Aux>
     );
     // return React.createElement('div', {class: 'App'}, React.createElement('h1', null, 'Hi, I\'m a React App.'));
